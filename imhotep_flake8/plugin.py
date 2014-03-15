@@ -29,7 +29,7 @@ class Flake8Linter(Tool):
                 path, line, column, message = line.split(':')
                 file_name = os.path.abspath(path)
                 file_name = file_name.replace(dirname, "")[1:]
-                retval[str(file_name)][line].append(message)
+                retval[str(file_name)][line].append(message.lstrip(' '))
         except:
             pass
         return retval
