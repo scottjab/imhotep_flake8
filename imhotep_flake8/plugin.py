@@ -6,14 +6,15 @@ import os
 
 class Flake8Linter(Tool):
     def get_configs(self):
-        return {'flake8', '.flake8'}
+        return {'flake8', '.flake8', 'setup.cfg'}
 
     def invoke(self, dirname, filenames=set(), linter_configs=set()):
         retval = defaultdict(lambda: defaultdict(list))
         config = ''
         for config_file in linter_configs:
-            if 'flake8' in config_file:
-                config = "--config=%s " % config_file
+            config = "--config=%s " % config_file
+            break
+
         if len(filenames) == 0:
             cmd = "find %s -name '*.py' | xargs flake8 %s" % (dirname, config)
         else:

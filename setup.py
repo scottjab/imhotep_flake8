@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='imhotep_flake8',
-    version='0.0.1',
+    version='1.0.0',
     packages=find_packages(),
     url='https://github.com/scottjab/imhotep_flake8',
     license='MIT',
